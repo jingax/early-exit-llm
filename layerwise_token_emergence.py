@@ -44,21 +44,30 @@ def _maybe_apply_chat_template(
     tokenizer, prompt: str, use_chat_template: bool
 ) -> torch.Tensor:
     if not use_chat_template:
-        return tokenizer(prompt, return_tensors="pt").input_ids
+        enc = tokenizer(prompt, return_tensors="pt")
+        return enc.input_ids
 
     # For chat-tuned models, prefer the built-in chat template if present.
     if getattr(tokenizer, "chat_template", None):
         messages = [{"role": "user", "content": prompt}]
-        input_ids = tokenizer.apply_chat_template(
-            messages,
-            tokenize=True,
-            add_generation_prompt=True,
-            return_tensors="pt",
-        )
-        return input_ids
+        try:
+            # IMPORTANT: normalize the return type to a torch.Tensor.
+            # Some tokenizers return tokenized objects instead of plain tensors.
+            rendered = tokenizer.apply_chat_template(
+                messages,
+                tokenize=False,
+                add_generation_prompt=True,
+            )
+            enc = tokenizer(rendered, return_tensors="pt")
+            return enc.input_ids
+        except Exception:
+            # If the chat template path fails for any reason, fall back to plain text.
+            enc = tokenizer(prompt, return_tensors="pt")
+            return enc.input_ids
 
     # Fallback: treat prompt as plain text.
-    return tokenizer(prompt, return_tensors="pt").input_ids
+    enc = tokenizer(prompt, return_tensors="pt")
+    return enc.input_ids
 
 
 def generate_sequence(
