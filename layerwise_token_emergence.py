@@ -1,10 +1,12 @@
 import argparse
 from dataclasses import dataclass
+import os
 from typing import List, Optional, Tuple
 
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
+import warnings
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
@@ -204,6 +206,8 @@ def visualize_token_grid(
     final_tokens: np.ndarray,
     tokenizer,
     max_seq_len: Optional[int] = None,
+    save_path: Optional[str] = None,
+    show: bool = True,
     figsize: Tuple[float, float] = (14, 8),
     title: str = "",
 ):
@@ -230,7 +234,22 @@ def visualize_token_grid(
 
     cmap = ListedColormap(["#d62728", "#2ca02c"])  # red, green
 
-    fig, ax = plt.subplots(figsize=figsize)
+    # Font fallback to reduce missing glyph warnings for CJK tokens.
+    plt.rcParams["font.sans-serif"] = [
+        "Noto Sans CJK SC",
+        "Microsoft YaHei",
+        "SimHei",
+        "Arial Unicode MS",
+        "DejaVu Sans",
+    ]
+    plt.rcParams["axes.unicode_minus"] = False
+
+    with warnings.catch_warnings():
+        # Common warning when overlaying token text that your current font lacks.
+        warnings.filterwarnings(
+            "ignore", message=r"Glyph .* missing from font", category=UserWarning
+        )
+        fig, ax = plt.subplots(figsize=figsize)
     im = ax.imshow(color_grid, aspect="auto", interpolation="nearest", cmap=cmap)
 
     # X: layers (0..num_stages-1), Y: token positions (0..seq_len-1)
@@ -271,12 +290,18 @@ def visualize_token_grid(
     ax.legend(handles=legend_handles, loc="upper right")
 
     plt.tight_layout()
-    plt.show()
+    if save_path:
+        fig.savefig(save_path, dpi=200, bbox_inches="tight")
+    if show:
+        plt.show()
+    plt.close(fig)
 
 
 def plot_rank_curves(
     rank_curves: np.ndarray,
     rank_positions: List[int],
+    save_path: Optional[str] = None,
+    show: bool = True,
     title: str = "Rank vs layer (for final token at each position)",
 ):
     # rank_curves: [num_rank_positions, num_stages]
@@ -292,7 +317,12 @@ def plot_rank_curves(
     plt.title(title)
     plt.legend()
     plt.tight_layout()
-    plt.show()
+    fig = plt.gcf()
+    if save_path:
+        fig.savefig(save_path, dpi=200, bbox_inches="tight")
+    if show:
+        plt.show()
+    plt.close(fig)
 
 
 def parse_rank_positions(s: Optional[str], seq_len: int) -> Optional[List[int]]:
@@ -325,6 +355,14 @@ def main():
     parser.add_argument("--device", default="auto", type=str)
     parser.add_argument("--dtype", default="auto", type=str, choices=["auto", "float16", "float32", "bfloat16"])
     parser.add_argument("--plot_max_seq_len", default=48, type=int)
+    parser.add_argument("--save_plot_dir", default="plots", type=str)
+    parser.add_argument("--no_save_plots", action="store_true", help="Disable saving plots to disk")
+    parser.add_argument("--no_show_plots", action="store_true", help="Disable showing plots via plt.show()")
+    parser.add_argument(
+        "--show_font_warnings",
+        action="store_true",
+        help="Show matplotlib font glyph warnings (usually noisy).",
+    )
     parser.add_argument(
         "--rank_positions",
         default=None,
@@ -332,6 +370,11 @@ def main():
         help="Comma-separated input positions t for which to plot rank vs layer. Example: 0,1,5",
     )
     args = parser.parse_args()
+
+    if not args.show_font_warnings:
+        warnings.filterwarnings(
+            "ignore", message=r"Glyph .* missing from font", category=UserWarning
+        )
 
     # Device/dtype
     if args.device == "auto":
@@ -406,18 +449,37 @@ def main():
     print(f"Final-layer argmax matches generated next tokens for {matches}/{seq_len-1} positions.")
     print()
 
+    save_plots = not args.no_save_plots
+    show_plots = not args.no_show_plots
+    plot_dir = args.save_plot_dir
+    if save_plots:
+        os.makedirs(plot_dir, exist_ok=True)
+
     # Visualization grid (may truncate for readability)
+    grid_save_path = (
+        os.path.join(plot_dir, "token_emergence_grid.png") if save_plots else None
+    )
     visualize_token_grid(
         analysis.argmax_tokens,
         analysis.final_tokens,
         tokenizer=tokenizer,
         max_seq_len=args.plot_max_seq_len,
+        save_path=grid_save_path,
+        show=show_plots,
         title=f"Layer-wise token emergence (TinyLlama) | showing first {min(seq_len, args.plot_max_seq_len)} positions",
     )
 
     # Optional: rank curves
     if analysis.rank_curves is not None and analysis.rank_positions is not None:
-        plot_rank_curves(analysis.rank_curves, analysis.rank_positions)
+        rank_save_path = (
+            os.path.join(plot_dir, "rank_curves.png") if save_plots else None
+        )
+        plot_rank_curves(
+            analysis.rank_curves,
+            analysis.rank_positions,
+            save_path=rank_save_path,
+            show=show_plots,
+        )
 
 
 if __name__ == "__main__":
