@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="520" viewBox="0 0 680 520">
+  <defs>
+    <style>
+      .link { stroke: #000000; stroke-width: 3.84; stroke-opacity: 1; stroke-linecap: round; }
+      .node { stroke: #ffffff; stroke-width: 3; }
+    </style>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#4c1d95" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <line class="link" x1="120" y1="110" x2="340" y2="70"/>
+  <line class="link" x1="120" y1="110" x2="340" y2="135"/>
+  <line class="link" x1="120" y1="110" x2="340" y2="200"/>
+  <line class="link" x1="120" y1="110" x2="340" y2="265"/>
+  <line class="link" x1="120" y1="110" x2="340" y2="330"/>
+  <line class="link" x1="120" y1="110" x2="340" y2="395"/>
+  <line class="link" x1="120" y1="110" x2="340" y2="460"/>
+  <line class="link" x1="120" y1="210" x2="340" y2="70"/>
+  <line class="link" x1="120" y1="210" x2="340" y2="135"/>
+  <line class="link" x1="120" y1="210" x2="340" y2="200"/>
+  <line class="link" x1="120" y1="210" x2="340" y2="265"/>
+  <line class="link" x1="120" y1="210" x2="340" y2="330"/>
+  <line class="link" x1="120" y1="210" x2="340" y2="395"/>
+  <line class="link" x1="120" y1="210" x2="340" y2="460"/>
+  <line class="link" x1="120" y1="310" x2="340" y2="70"/>
+  <line class="link" x1="120" y1="310" x2="340" y2="135"/>
+  <line class="link" x1="120" y1="310" x2="340" y2="200"/>
+  <line class="link" x1="120" y1="310" x2="340" y2="265"/>
+  <line class="link" x1="120" y1="310" x2="340" y2="330"/>
+  <line class="link" x1="120" y1="310" x2="340" y2="395"/>
+  <line class="link" x1="120" y1="310" x2="340" y2="460"/>
+  <line class="link" x1="120" y1="410" x2="340" y2="70"/>
+  <line class="link" x1="120" y1="410" x2="340" y2="135"/>
+  <line class="link" x1="120" y1="410" x2="340" y2="200"/>
+  <line class="link" x1="120" y1="410" x2="340" y2="265"/>
+  <line class="link" x1="120" y1="410" x2="340" y2="330"/>
+  <line class="link" x1="120" y1="410" x2="340" y2="395"/>
+  <line class="link" x1="120" y1="410" x2="340" y2="460"/>
+
+  <line class="link" x1="340" y1="70" x2="560" y2="110"/>
+  <line class="link" x1="340" y1="70" x2="560" y2="210"/>
+  <line class="link" x1="340" y1="70" x2="560" y2="310"/>
+  <line class="link" x1="340" y1="70" x2="560" y2="410"/>
+  <line class="link" x1="340" y1="135" x2="560" y2="110"/>
+  <line class="link" x1="340" y1="135" x2="560" y2="210"/>
+  <line class="link" x1="340" y1="135" x2="560" y2="310"/>
+  <line class="link" x1="340" y1="135" x2="560" y2="410"/>
+  <line class="link" x1="340" y1="200" x2="560" y2="110"/>
+  <line class="link" x1="340" y1="200" x2="560" y2="210"/>
+  <line class="link" x1="340" y1="200" x2="560" y2="310"/>
+  <line class="link" x1="340" y1="200" x2="560" y2="410"/>
+  <line class="link" x1="340" y1="265" x2="560" y2="110"/>
+  <line class="link" x1="340" y1="265" x2="560" y2="210"/>
+  <line class="link" x1="340" y1="265" x2="560" y2="310"/>
+  <line class="link" x1="340" y1="265" x2="560" y2="410"/>
+  <line class="link" x1="340" y1="330" x2="560" y2="110"/>
+  <line class="link" x1="340" y1="330" x2="560" y2="210"/>
+  <line class="link" x1="340" y1="330" x2="560" y2="310"/>
+  <line class="link" x1="340" y1="330" x2="560" y2="410"/>
+  <line class="link" x1="340" y1="395" x2="560" y2="110"/>
+  <line class="link" x1="340" y1="395" x2="560" y2="210"/>
+  <line class="link" x1="340" y1="395" x2="560" y2="310"/>
+  <line class="link" x1="340" y1="395" x2="560" y2="410"/>
+  <line class="link" x1="340" y1="460" x2="560" y2="110"/>
+  <line class="link" x1="340" y1="460" x2="560" y2="210"/>
+  <line class="link" x1="340" y1="460" x2="560" y2="310"/>
+  <line class="link" x1="340" y1="460" x2="560" y2="410"/>
+
+  <g filter="url(#shadow)">
+    <circle class="node" cx="120" cy="110" r="26" fill="#c8c0d3"/>
+    <circle class="node" cx="120" cy="210" r="26" fill="#c8c0d3"/>
+    <circle class="node" cx="120" cy="310" r="26" fill="#c8c0d3"/>
+    <circle class="node" cx="120" cy="410" r="26" fill="#c8c0d3"/>
+
+    <circle class="node" cx="340" cy="70" r="26" fill="#7c3aed"/>
+    <circle class="node" cx="340" cy="135" r="26" fill="#e9d5ff"/>
+    <circle class="node" cx="340" cy="200" r="26" fill="#4c1d95"/>
+    <circle class="node" cx="340" cy="265" r="26" fill="#c084fc"/>
+    <circle class="node" cx="340" cy="330" r="26" fill="#9333ea"/>
+    <circle class="node" cx="340" cy="395" r="26" fill="#6d28d9"/>
+    <circle class="node" cx="340" cy="460" r="26" fill="#a855f7"/>
+
+    <circle class="node" cx="560" cy="110" r="26" fill="#c8c0d3"/>
+    <circle class="node" cx="560" cy="210" r="26" fill="#c8c0d3"/>
+    <circle class="node" cx="560" cy="310" r="26" fill="#c8c0d3"/>
+    <circle class="node" cx="560" cy="410" r="26" fill="#c8c0d3"/>
+  </g>
+</svg>
