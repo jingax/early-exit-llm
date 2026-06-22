@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="520" viewBox="0 0 680 520">
   <defs>
     <style>
-      .link { stroke: #c4b5fd; stroke-width: 6.4; stroke-opacity: 0.55; stroke-linecap: round; }
+      .link { stroke: #000000; stroke-width: 6.4; stroke-opacity: 1; stroke-linecap: round; }
       .node { stroke: #ffffff; stroke-width: 3; }
     </style>
     <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
