@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="520" viewBox="0 0 680 520" role="img" aria-labelledby="title desc">
+  <title id="title">MLP neural network with random purple node shades</title>
+  <desc id="desc">A multilayer perceptron diagram with three input nodes, five hidden nodes, and three output nodes. The circular nodes use randomly arranged shades of purple.</desc>
+  <defs>
+    <style>
+      .canvas { fill: #fbf8ff; }
+      .link { stroke: #c4b5fd; stroke-width: 1.6; stroke-opacity: 0.42; }
+      .node { stroke: #ffffff; stroke-width: 3; }
+      .label { fill: #3b0764; font: 600 16px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; text-anchor: middle; }
+      .small-label { fill: #581c87; font: 500 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; text-anchor: middle; }
+    </style>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#4c1d95" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect class="canvas" width="680" height="520" rx="28"/>
+  <text class="label" x="340" y="48">Random purple MLP node order</text>
+
+  <!-- Input to hidden connections -->
+  <line class="link" x1="120" y1="165" x2="340" y2="95"/>
+  <line class="link" x1="120" y1="165" x2="340" y2="180"/>
+  <line class="link" x1="120" y1="165" x2="340" y2="265"/>
+  <line class="link" x1="120" y1="165" x2="340" y2="350"/>
+  <line class="link" x1="120" y1="165" x2="340" y2="435"/>
+  <line class="link" x1="120" y1="265" x2="340" y2="95"/>
+  <line class="link" x1="120" y1="265" x2="340" y2="180"/>
+  <line class="link" x1="120" y1="265" x2="340" y2="265"/>
+  <line class="link" x1="120" y1="265" x2="340" y2="350"/>
+  <line class="link" x1="120" y1="265" x2="340" y2="435"/>
+  <line class="link" x1="120" y1="365" x2="340" y2="95"/>
+  <line class="link" x1="120" y1="365" x2="340" y2="180"/>
+  <line class="link" x1="120" y1="365" x2="340" y2="265"/>
+  <line class="link" x1="120" y1="365" x2="340" y2="350"/>
+  <line class="link" x1="120" y1="365" x2="340" y2="435"/>
+
+  <!-- Hidden to output connections -->
+  <line class="link" x1="340" y1="95" x2="560" y2="165"/>
+  <line class="link" x1="340" y1="95" x2="560" y2="265"/>
+  <line class="link" x1="340" y1="95" x2="560" y2="365"/>
+  <line class="link" x1="340" y1="180" x2="560" y2="165"/>
+  <line class="link" x1="340" y1="180" x2="560" y2="265"/>
+  <line class="link" x1="340" y1="180" x2="560" y2="365"/>
+  <line class="link" x1="340" y1="265" x2="560" y2="165"/>
+  <line class="link" x1="340" y1="265" x2="560" y2="265"/>
+  <line class="link" x1="340" y1="265" x2="560" y2="365"/>
+  <line class="link" x1="340" y1="350" x2="560" y2="165"/>
+  <line class="link" x1="340" y1="350" x2="560" y2="265"/>
+  <line class="link" x1="340" y1="350" x2="560" y2="365"/>
+  <line class="link" x1="340" y1="435" x2="560" y2="165"/>
+  <line class="link" x1="340" y1="435" x2="560" y2="265"/>
+  <line class="link" x1="340" y1="435" x2="560" y2="365"/>
+
+  <g filter="url(#shadow)">
+    <!-- Randomly arranged purple shades -->
+    <circle class="node" cx="120" cy="165" r="30" fill="#a855f7"/>
+    <circle class="node" cx="120" cy="265" r="30" fill="#581c87"/>
+    <circle class="node" cx="120" cy="365" r="30" fill="#d8b4fe"/>
+
+    <circle class="node" cx="340" cy="95" r="30" fill="#7c3aed"/>
+    <circle class="node" cx="340" cy="180" r="30" fill="#e9d5ff"/>
+    <circle class="node" cx="340" cy="265" r="30" fill="#4c1d95"/>
+    <circle class="node" cx="340" cy="350" r="30" fill="#c084fc"/>
+    <circle class="node" cx="340" cy="435" r="30" fill="#9333ea"/>
+
+    <circle class="node" cx="560" cy="165" r="30" fill="#6d28d9"/>
+    <circle class="node" cx="560" cy="265" r="30" fill="#b794f4"/>
+    <circle class="node" cx="560" cy="365" r="30" fill="#8b5cf6"/>
+  </g>
+
+  <text class="small-label" x="120" y="468">3 inputs</text>
+  <text class="small-label" x="340" y="468">5 hidden nodes</text>
+  <text class="small-label" x="560" y="468">3 outputs</text>
+</svg>
