@@ -68,10 +68,10 @@
   <line class="link" x1="340" y1="460" x2="560" y2="410"/>
 
   <g filter="url(#shadow)">
-    <circle class="node" cx="120" cy="110" r="26" fill="#a855f7"/>
-    <circle class="node" cx="120" cy="210" r="26" fill="#581c87"/>
-    <circle class="node" cx="120" cy="310" r="26" fill="#d8b4fe"/>
-    <circle class="node" cx="120" cy="410" r="26" fill="#7c3aed"/>
+    <circle class="node" cx="120" cy="110" r="26" fill="#c8c0d3"/>
+    <circle class="node" cx="120" cy="210" r="26" fill="#c8c0d3"/>
+    <circle class="node" cx="120" cy="310" r="26" fill="#c8c0d3"/>
+    <circle class="node" cx="120" cy="410" r="26" fill="#c8c0d3"/>
 
     <circle class="node" cx="340" cy="70" r="26" fill="#7c3aed"/>
     <circle class="node" cx="340" cy="135" r="26" fill="#e9d5ff"/>
@@ -81,9 +81,9 @@
     <circle class="node" cx="340" cy="395" r="26" fill="#6d28d9"/>
     <circle class="node" cx="340" cy="460" r="26" fill="#a855f7"/>
 
-    <circle class="node" cx="560" cy="110" r="26" fill="#6d28d9"/>
-    <circle class="node" cx="560" cy="210" r="26" fill="#b794f4"/>
-    <circle class="node" cx="560" cy="310" r="26" fill="#8b5cf6"/>
-    <circle class="node" cx="560" cy="410" r="26" fill="#d8b4fe"/>
+    <circle class="node" cx="560" cy="110" r="26" fill="#c8c0d3"/>
+    <circle class="node" cx="560" cy="210" r="26" fill="#c8c0d3"/>
+    <circle class="node" cx="560" cy="310" r="26" fill="#c8c0d3"/>
+    <circle class="node" cx="560" cy="410" r="26" fill="#c8c0d3"/>
   </g>
 </svg>
